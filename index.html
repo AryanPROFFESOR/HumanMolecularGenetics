@@ -17,18 +17,19 @@
 
 <body>
     <!-- HEADER/NAVIGATION -->
-    <!-- UPDATED HEADER/NAVIGATION - Replace your existing header -->
     <header>
         <div class="header-container">
-            <div class="logo-section">
+            <div class="logo-section" onclick="window.open('https://www.jncasr.ac.in/', '_blank')">
                 <img src="assets/images/logo/logojnc.png" alt="HMG Lab Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>HMG Lab</h1>
-                    <p>Molecular Genetics Research</p>
+                    <p>JNCASR Bengaluru</p>
                 </div>
             </div>
 
-            <nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+
+            <nav id="mainNav">
                 <ul class="nav-menu">
                     <li class="nav-item">
                         <a href="#home" class="nav-link">Home</a>
@@ -42,17 +43,21 @@
                             <span class="dropdown-arrow">▼</span>
                         </a>
                         <div class="dropdown">
-                            <a href="#genetic-heterogeneity" class="dropdown-item">Genetic Heterogeneity</a>
-                            <a href="#population-genetics" class="dropdown-item">Population Genetics</a>
-                            <a href="#comparative-genomics" class="dropdown-item">Comparative Genomics</a>
-                            <a href="#functional-genetics" class="dropdown-item">Functional Genetics</a>
+                            <a href="#rna-surveillance" class="dropdown-item">RNA Surveillance Mechanisms</a>
+                            <a href="#cell-cycle" class="dropdown-item">Cell Cycle & Ciliopathies</a>
+                            <a href="#protein-trafficking" class="dropdown-item">Protein Trafficking & Autophagy</a>
+                            <a href="#splicing-chromatin" class="dropdown-item">Splicing & Chromatin Biology</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="#team" class="nav-link">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#alumni" class="nav-link">Alumni</a>
+                        <a href="#team" class="nav-link">
+                            Team
+                            <span class="dropdown-arrow">▼</span>
+                        </a>
+                        <div class="dropdown">
+                            <a href="#team" class="dropdown-item">Members</a>
+                            <a href="#alumni" class="dropdown-item">Alumni</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="#publications" class="nav-link">Publications</a>
@@ -110,36 +115,160 @@
             </div>
         </section>
 
-        <!-- RESEARCH SECTION -->
+        <!-- RESEARCH OVERVIEW SECTION -->
         <section id="research">
             <h2>Research Focus Areas</h2>
-
             <p>Our research spans critical domains in human molecular genetics, investigating genetic mechanisms
                 underlying diverse phenotypes and disease states.</p>
+        </section>
 
-            <div class="research-grid">
-                <div class="research-card" id="genetic-heterogeneity">
-                    <h3>Genetic Heterogeneity</h3>
-                    <p>Investigating genetic variation and heterogeneity in disease causation, identifying novel genes
-                        and mutations responsible for genetic disorders through comprehensive genomic studies.</p>
+        <!-- RNA SURVEILLANCE MECHANISMS -->
+        <section id="rna-surveillance">
+            <h2>RNA Surveillance Mechanisms</h2>
+            <div class="research-detail">
+                <div class="research-text">
+                    <h3>Exploring the Role of RNA-Binding Proteins</h3>
+                    <p>Role of RNA-Binding Proteins in Stress Granule Formation and Function. Cells adapt to
+                        environmental and physiological stress by reorganizing their molecular architecture, forming
+                        dynamic RNA-protein assemblies that protect essential processes such as RNA regulation and
+                        protein synthesis. Among these assemblies, stress granules serve as key hubs for mRNA triage,
+                        preserving transcript stability and modulating translation during stress.</p>
+
+                    <p>We study the molecular principles that shape stress granule behavior—how they assemble,
+                        disassemble, and adapt under stress. A key focus is understanding whether and how variations in
+                        regulatory proteins alter granule size, number, or dynamics, and what these changes mean for RNA
+                        regulation and cellular function.</p>
+
+                    <p>Using advanced imaging, protein interaction mapping, and functional assays, we seek to decode the
+                        molecular framework that underpins RNA surveillance and translational control within stress
+                        granules. These insights are key to understanding fundamental cell biology and revealing how
+                        failures in RNA regulatory systems contribute to neurological disorders and other complex
+                        diseases.</p>
                 </div>
-
-                <div class="research-card" id="population-genetics">
-                    <h3>Population Genetics</h3>
-                    <p>Studying genetic diversity and population structure in Indian and South Asian populations,
-                        understanding allele frequencies and disease susceptibility patterns.</p>
+                <div class="research-image">
+                    <img src="assets/images/research/rna-surveillance.jpg" alt="RNA Surveillance Research">
                 </div>
+            </div>
+        </section>
 
-                <div class="research-card" id="comparative-genomics">
-                    <h3>Comparative Genomics</h3>
-                    <p>Analyzing genomic sequences across populations to identify conserved regions and disease-causing
-                        variants through comparative analysis and evolutionary approaches.</p>
+        <!-- CELL CYCLE & CILIOPATHIES -->
+        <section id="cell-cycle">
+            <h2>Cell Cycle & Ciliopathies</h2>
+
+            <div class="research-detail">
+                <div class="research-text">
+                    <h3>Cell Cycle Regulation</h3>
+                    <p>We are interested in understanding the mechanisms employed by proteins involved in cell cycle
+                        regulation, ciliogenesis, apoptosis and their links to pathophysiology of various neurological
+                        disorders with a focus on genetic generalized epilepsy. Genetic analysis on cohorts of epileptic
+                        and control individuals from the Indian population has yielded a set of clinically relevant
+                        mutations which are being assayed through various cellular and animal models for their effects
+                        on cell cycle and its links to the brain.</p>
                 </div>
+                <div class="research-image">
+                    <img src="assets/images/research/cell-cycle.jpg" alt="Cell Cycle Research">
+                </div>
+            </div>
 
-                <div class="research-card" id="functional-genetics">
-                    <h3>Functional Genetics</h3>
-                    <p>Characterizing the functional impact of genetic variants through molecular and cellular studies,
-                        determining pathogenic mechanisms and biological consequences.</p>
+            <div class="research-detail reverse">
+                <div class="research-text">
+                    <h3>RNA Binding Factors in Cilia Biology and Ciliopathies</h3>
+                    <p>Cilia are highly specialized organelles essential for numerous cellular functions, including
+                        signal transduction, fluid movement, and embryonic development. Defects in the formation or
+                        function of cilia lead to a group of disorders collectively known as ciliopathies, often
+                        characterized by developmental anomalies affecting multiple organ systems. Recent research has
+                        highlighted the emerging role of RNA-binding factors in regulating cilia biogenesis and
+                        function.</p>
+
+                    <p>These proteins are crucial for precise RNA processing, particularly alternative splicing of genes
+                        essential for ciliogenesis and ciliary signaling. Misregulation or mutations in such factors can
+                        disrupt the splicing of ciliary genes, leading to abnormal cilia structure or signaling defects,
+                        and ultimately contribute to the pathogenesis of ciliopathies.</p>
+
+                    <p>Understanding the molecular interplay between RNA processing machinery and ciliary pathways offers
+                        new insights into the etiology of these complex disorders and opens avenues for potential
+                        therapeutic strategies.</p>
+                </div>
+                <div class="research-image">
+                    <img src="assets/images/research/ciliopathies.jpg" alt="Ciliopathies Research">
+                </div>
+            </div>
+        </section>
+
+        <!-- PROTEIN TRAFFICKING & AUTOPHAGY -->
+        <section id="protein-trafficking">
+            <h2>Protein Trafficking & Autophagy</h2>
+            <div class="research-detail">
+                <div class="research-text">
+                    <h3>Protein Trafficking & Autophagy</h3>
+                    <p>Our lab focuses on understanding how disruptions in protein trafficking contribute to epilepsy
+                        and other neurological disorders. We study proteins that regulate the movement and localization
+                        of key neuronal components, such as ion channels and receptors, which are essential for
+                        maintaining normal brain activity. Defective trafficking of these proteins can lead to imbalances
+                        in neuronal signaling and increase the risk of seizure activity.</p>
+
+                    <p>By identifying and characterizing trafficking-related proteins implicated in epilepsy, we aim to
+                        uncover the molecular mechanisms driving the disease. Our approach combines genetic models,
+                        molecular biology, and advanced imaging to explore how these pathways are altered in the
+                        epileptic brain. This research could pave the way for targeted therapies that restore proper
+                        protein localization and neural function.</p>
+                </div>
+                <div class="research-image">
+                    <img src="assets/images/research/protein-trafficking.jpg" alt="Protein Trafficking Research">
+                </div>
+            </div>
+        </section>
+
+        <!-- SPLICING & CHROMATIN BIOLOGY -->
+        <section id="splicing-chromatin">
+            <h2>Splicing & Chromatin Biology</h2>
+
+            <div class="research-detail">
+                <div class="research-text">
+                    <h3>Investigating Chromatin Association and Transcriptional Regulatory Functions of Novel Factors
+                    </h3>
+                    <p>This research area focuses on understanding whether specific proteins or genes of interest play a
+                        role in chromatin biology or transcriptional regulation. A central objective is to determine
+                        whether these factors function as transcription factors, chromatin-associated proteins, or
+                        modulators of gene expression through interactions with chromatin architecture.</p>
+
+                    <p>By using Chromatin Immunoprecipitation followed by sequencing (ChIP-seq), genome-wide binding
+                        profiles are generated to determine whether these factors associate with chromatin, bind
+                        regulatory elements such as promoters or enhancers, or function as transcription factors. The
+                        binding data are integrated with transcriptomic and epigenomic information to assess
+                        correlations with gene expression and chromatin states.</p>
+
+                    <p>This approach helps identify whether the factors act directly on DNA or modulate chromatin
+                        structure indirectly. The ultimate goal is to reveal novel mechanisms of gene regulation and
+                        chromatin dynamics with potential implications in development and disease.</p>
+                </div>
+                <div class="research-image">
+                    <img src="assets/images/research/chromatin.jpg" alt="Chromatin Biology Research">
+                </div>
+            </div>
+
+            <div class="research-detail reverse">
+                <div class="research-text">
+                    <h3>RNA Splicing Mechanisms and Gene Regulation</h3>
+                    <p>Alternative splicing is a fundamental mechanism that enables cells to generate protein diversity
+                        from a limited number of genes, playing critical roles in development, cellular differentiation,
+                        and disease. Our research investigates the molecular mechanisms governing splice site
+                        recognition, spliceosome assembly, and the regulatory networks that control tissue-specific and
+                        context-dependent splicing patterns.</p>
+
+                    <p>We employ genome-wide approaches including RNA-seq and CLIP-seq to map splicing landscapes and
+                        identify regulatory elements that influence splice site selection. By integrating computational
+                        predictions with experimental validation, we characterize splicing factors and their target
+                        transcripts, revealing how aberrant splicing contributes to human disease, particularly
+                        neurological disorders and cancer.</p>
+
+                    <p>Understanding the interplay between splicing machinery, chromatin modifications, and
+                        transcriptional regulation provides insights into how cells coordinate gene expression programs.
+                        Our work aims to identify novel splicing regulators and therapeutic targets for diseases caused
+                        by splicing defects.</p>
+                </div>
+                <div class="research-image">
+                    <img src="assets/images/research/splicing.jpg" alt="RNA Splicing Research">
                 </div>
             </div>
         </section>
@@ -148,41 +277,105 @@
         <section id="team">
             <h2>Our Team</h2>
 
-            <div class="team-grid">
-                <div class="member-card">
-                    <div class="member-avatar">PI</div>
-                    <h3>Principal Investigator</h3>
-                    <p class="member-role">Lab Director</p>
-                    <p class="member-bio">Leading research in human molecular genetics and genetic disease mechanisms
-                        with expertise in genomics and bioinformatics.</p>
+            <!-- Principal Investigator Section -->
+            <div class="pi-section">
+                <div class="pi-content">
+                    <h3>Prof. (Dr) Anuranjan Anand</h3>
+                    <p class="pi-title">FASc, FNASc, FNA, J C Bose National Fellow<br>Professor<br>Principal
+                        Investigator</p>
+                    <p class="pi-description">Anuranjan Anand obtained his Ph.D. from the Microbiology and Cell Biology
+                        Department, Indian Institute of Science, and carried out his post-doctoral research at Stanford
+                        University, USA. He joined as a faculty in the Molecular Biology and Genetics Unit, JNCASR, and
+                        later became a Professor and Chair (August 2009- July 2016) of the Unit. He Chaired the
+                        Neuroscience Unit at this Centre from July 2016 to June 2022.</p>
+                    <div class="pi-links">
+                        <a href="https://vidwan.inflibnet.ac.in/profile/42658" target="_blank">Vidwan Profile</a>
+                        <a href="https://orcid.org/0000-0001-9584-8730" target="_blank">ORCID</a>
+                    </div>
                 </div>
-
-                <div class="member-card">
-                    <div class="member-avatar">SR</div>
-                    <h3>Senior Researcher</h3>
-                    <p class="member-role">Postdoctoral Fellow</p>
-                    <p class="member-bio">Specializing in population genetics and sequence analysis with focus on
-                        disease variant characterization.</p>
-                </div>
-
-                <div class="member-card">
-                    <div class="member-avatar">GS</div>
-                    <h3>Graduate Student</h3>
-                    <p class="member-role">PhD Candidate</p>
-                    <p class="member-bio">Investigating genetic heterogeneity in hereditary disorders and novel disease
-                        mechanisms.</p>
-                </div>
-
-                <div class="member-card">
-                    <div class="member-avatar">RA</div>
-                    <h3>Research Associate</h3>
-                    <p class="member-role">Project Coordinator</p>
-                    <p class="member-bio">Managing research projects, participant recruitment, and laboratory
-                        operations.</p>
+                <div class="pi-image">
+                    <img src="assets/images/team/pi-anand.jpg" alt="Prof. Anuranjan Anand">
                 </div>
             </div>
+
+            <!-- Team Members Grid -->
+            <div class="team-grid">
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/kumaresan.jpg" alt="Dr. Kumaresan">
+                    </div>
+                    <h3>Dr. Kumaresan</h3>
+                    <p class="member-role">Research Associate</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/charani.jpg" alt="Chinthapatla Sri Charani">
+                    </div>
+                    <h3>Chinthapatla Sri Charani</h3>
+                    <p class="member-role">PhD Candidate</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/debopriya.jpg" alt="Debopriya Choudhury">
+                    </div>
+                    <h3>Debopriya Choudhury</h3>
+                    <p class="member-role">PhD Candidate</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/simran.jpg" alt="Simran Shabir">
+                    </div>
+                    <h3>Simran Shabir</h3>
+                    <p class="member-role">PhD Candidate</p>
+                    <p class="member-bio">B.Sc. Biotechnology from Islamia College of Science and Commerce, University
+                        of Kashmir, Srinagar. M.Sc. Biotechnology from Kurukshetra University, Haryana.</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/geetha.jpg" alt="Geetha V C">
+                    </div>
+                    <h3>Geetha V C</h3>
+                    <p class="member-role">PhD Candidate</p>
+                    <p class="member-bio">B.Sc in Biochemistry, PSG CAS, Bharathiyar University, Coimbatore. M.Sc in
+                        Biochemistry and Molecular Biology, Pondicherry University, Puducherry. Research interests: Neuro
+                        and Developmental Genetics.</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/smruti.jpg" alt="Smruti Rekha Sahoo">
+                    </div>
+                    <h3>Smruti Rekha Sahoo</h3>
+                    <p class="member-role">PhD Candidate</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/oiendrila.jpg" alt="Oiendrila Das">
+                    </div>
+                    <h3>Oiendrila Das</h3>
+                    <p class="member-role">PhD Candidate</p>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="assets/images/team/mahalakshmi.jpg" alt="Mahalakshmi N">
+                    </div>
+                    <h3>Mahalakshmi N</h3>
+                    <p class="member-role">PhD Candidate</p>
+                </div>
+            </div>
+
+            <div class="alumni-link-section">
+                <a href="#alumni" class="alumni-link-btn">View Our Alumni</a>
+            </div>
         </section>
-        <!-- ALUMNI SECTION - Add this after the Team section and before Publications -->
+
+        <!-- ALUMNI SECTION -->
         <section id="alumni">
             <h2>Our Alumni</h2>
             <p>Our accomplished alumni have gone on to make significant contributions to genetics research and industry
@@ -193,7 +386,7 @@
                 <div class="alumni-card">
                     <div class="alumni-image-container">
                         <img src="assets/images/alumiimage/pkraju.jpeg" alt="P K Raju Peddabhatyarasimhuni"
-                            class="alumni-image">
+                            class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>PR</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. P K Raju Peddabhatyarasimhuni</h3>
@@ -206,7 +399,7 @@
                 <div class="alumni-card">
                     <div class="alumni-image-container">
                         <img src="assets/images/alumiimage/kalpita.jpeg" alt="Kalpita Rashmi Karan"
-                            class="alumni-image">
+                            class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>KK</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Kalpita Rashmi Karan</h3>
@@ -231,7 +424,7 @@
                 <div class="alumni-card">
                     <div class="alumni-image-container">
                         <img src="assets/images/alumiimage/shalini.jpeg" alt="Shalini Roy Choudhury"
-                            class="alumni-image">
+                            class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>SR</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Shalini Roy Choudhury</h3>
@@ -243,7 +436,7 @@
                 <!-- Alumni 5 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/pooja.jpeg" alt="Pooja Barak" class="alumni-image">
+                        <img src="assets/images/alumiimage/pooja.jpeg" alt="Pooja Barak" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>PB</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Pooja Barak</h3>
@@ -255,7 +448,7 @@
                 <!-- Alumni 6 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/sambhavi.jpeg" alt="Sambhavi Puri" class="alumni-image">
+                        <img src="assets/images/alumiimage/sambhavi.jpeg" alt="Sambhavi Puri" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>SP</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Sambhavi Puri</h3>
@@ -267,7 +460,7 @@
                 <!-- Alumni 7 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/shveta.jpeg" alt="Shveta Jaichankar" class="alumni-image">
+                        <img src="assets/images/alumiimage/shveta.jpeg" alt="Shveta Jaichankar" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>SJ</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Shveta Jaichankar</h3>
@@ -279,7 +472,7 @@
                 <!-- Alumni 8 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/ramshank.jpeg" alt="M. Ram Shankar" class="alumni-image">
+                        <img src="assets/images/alumiimage/ramshank.jpeg" alt="M. Ram Shankar" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>RS</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. M. Ram Shankar</h3>
@@ -291,19 +484,7 @@
                 <!-- Alumni 9 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/ramshank2.jpeg" alt="M. Ram Shankar" class="alumni-image">
-                    </div>
-                    <div class="alumni-info">
-                        <h3>Dr. M. Ram Shankar</h3>
-                        <p class="alumni-degree">PhD 2007</p>
-                        <p class="alumni-institution">UT Southwestern Medical Center</p>
-                    </div>
-                </div>
-
-                <!-- Alumni 10 -->
-                <div class="alumni-card">
-                    <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/aparna.jpeg" alt="Aparna G" class="alumni-image">
+                        <img src="assets/images/alumiimage/aparna.jpeg" alt="Aparna G" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>AG</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Aparna G</h3>
@@ -312,10 +493,10 @@
                     </div>
                 </div>
 
-                <!-- Alumni 11 -->
+                <!-- Alumni 10 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/rinki.jpeg" alt="Rinki Ratea Priya" class="alumni-image">
+                        <img src="assets/images/alumiimage/rinki.jpeg" alt="Rinki Ratea Priya" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>RP</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Rinki Ratea Priya</h3>
@@ -324,10 +505,10 @@
                     </div>
                 </div>
 
-                <!-- Alumni 12 -->
+                <!-- Alumni 11 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/shrilaxmi.jpeg" alt="Shrilaxmi V Joshi" class="alumni-image">
+                        <img src="assets/images/alumiimage/shrilaxmi.jpeg" alt="Shrilaxmi V Joshi" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>SJ</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Shrilaxmi V Joshi</h3>
@@ -336,10 +517,10 @@
                     </div>
                 </div>
 
-                <!-- Alumni 13 -->
+                <!-- Alumni 12 -->
                 <div class="alumni-card">
                     <div class="alumni-image-container">
-                        <img src="assets/images/alumiimage/nishtha.jpeg" alt="Nishtha Pandey" class="alumni-image">
+                        <img src="assets/images/alumiimage/nishtha.jpeg" alt="Nishtha Pandey" class="alumni-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\'alumni-placeholder\'>NP</div>'">
                     </div>
                     <div class="alumni-info">
                         <h3>Dr. Nishtha Pandey</h3>
@@ -351,7 +532,6 @@
         </section>
 
         <!-- PUBLICATIONS SECTION -->
-        <!-- PUBLICATIONS SECTION - Replace the existing publications section with this -->
         <section id="publications">
             <h2>Recent Publications</h2>
 
@@ -364,34 +544,6 @@
                 </div>
                 <div class="pub-doi">DOI: 10.1111/bdi.12815</div>
                 <div class="separator"></div>
-                <div class="pub-abstract collapsed" id="abstract-1">
-                    We analysed a four-generation family with several of its members diagnosed for BD employing a
-                    combination of genetic linkage and exome analysis. We obtained suggestive LOD score for a chromosome
-                    1 and a chromosome 6 marker (D1S410; LOD = 3.01, Ө = 0; and D6S289; LOD = 1.58, Ө = 0). Manual
-                    haplotyping of the regions encompassing these two markers helped delimit a critical genomic interval
-                    of 32.44 Mb (D1S2700-D1S435; chromosome 1p31.1-13.2) and another of 10.34 Mb (D6S470-D6S422;
-                    chromosome 6p22.3-22.2). We examined the exomic sequences corresponding to these two intervals and
-                    found rare variants, NM_181712.4: c.2461G>T (p.Asp821Tyr) in KANK4 at 1p31.1-13.2; and
-                    NM_006366:c.-93G>A, in the 5' UTR of CAP2 at 6p22.3-22.2. Our study suggests involvement of KANK4 or
-                    CAP2 or both in BD in this family. Further analysis of these two genes in BD patients and functional
-                    evaluation of the allelic variants identified are suggested.
-                </div>
-                <div class="pub-buttons">
-                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-1', this)">Read More</button>
-                    <a href="https://onlinelibrary.wiley.com/doi/10.1111/bdi.12815" target="_blank"
-                        class="pub-btn pub-btn-publication">View Publication</a>
-                </div>
-            </div>
-
-            <!-- Publication 2 -->
-            <div class="publication-item">
-                <div class="pub-header">
-                    <h3 class="pub-title">Novel COCH p.V123E mutation causes progressive sensorineural hearing loss with
-                        impaired cochlin post-translational cleavage</h3>
-                    <span class="pub-journal">Human Mutation</span>
-                </div>
-                <div class="pub-doi">DOI: 10.1002/humu.23221</div>
-                <div class="separator"></div>
                 <div class="pub-abstract collapsed" id="abstract-2">
                     DFNA9 is an autosomal dominant disorder characterized by late-onset, non-syndromic hearing loss, and
                     vestibular dysfunction. Mutations in the COCH (coagulation factor C homology) gene encoding cochlin
@@ -399,159 +551,18 @@
                     (p.P51S, p.V66G, p.G88E, p.I109T, p.W117R, p.V123E, and p.C162Y) demonstrate reduced cleavage by
                     aggrecanase. The novel COCH p.V123E mutation shows impaired cochlin post-translational processing
                     and secretion, providing new insights into the pathogenic mechanisms underlying autosomal dominant
-                    hearing loss. This research advances our understanding of genetic heterogeneity in hearing disorders
-                    and potential therapeutic targets.
+                    hearing loss.
                 </div>
                 <div class="pub-buttons">
-                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-2', this)">Read More</button>
+                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-2', this)">Read
+                        More</button>
                     <a href="https://onlinelibrary.wiley.com/doi/10.1002/humu.23221" target="_blank"
                         class="pub-btn pub-btn-publication">View Publication</a>
                 </div>
             </div>
 
-            <!-- Publication 3 -->
-            <div class="publication-item">
-                <div class="pub-header">
-                    <h3 class="pub-title">Mutations in OTOF, CLDN14, and SLC26A4 genes as major causes of hearing
-                        impairment in Dhadkai village, Jammu and Kashmir, India</h3>
-                    <span class="pub-journal">Indian Journal of Medical Research</span>
-                </div>
-                <div class="pub-doi">DOI: 10.4103/ijmr.IJMR_1234_16</div>
-                <div class="separator"></div>
-                <div class="pub-abstract collapsed" id="abstract-3">
-                    This study investigates the genetic basis of hearing impairment in Dhadkai village, Jammu and
-                    Kashmir, India. Through comprehensive mutation analysis of common deafness genes, we identified
-                    pathogenic variants in OTOF, CLDN14, and SLC26A4 as the primary genetic causes of nonsyndromic
-                    hearing loss in this population. The findings highlight the importance of population-specific
-                    genetic studies and provide valuable insights into the molecular mechanisms underlying hereditary
-                    hearing loss in South Asian populations. These results have important implications for genetic
-                    counseling and potential therapeutic interventions for affected families in the region.
-                </div>
-                <div class="pub-buttons">
-                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-3', this)">Read More</button>
-                    <a href="https://ijmr.org.in/mutations-in-otof-cldn14-slc26a4-genes-as-major-causes-of-hearing-impairment-in-dhadkai-village-jammu-kashmir-india/"
-                        target="_blank" class="pub-btn pub-btn-publication">View Publication</a>
-                </div>
-            </div>
-
-            <!-- Publication 4 -->
-            <div class="publication-item">
-                <div class="pub-header">
-                    <h3 class="pub-title">Novel genetic locus for autosomal dominant nonsyndromic hearing loss
-                        identified through linkage analysis</h3>
-                    <span class="pub-journal">Human Genetics</span>
-                </div>
-                <div class="pub-doi">DOI: 10.1007/s00439-010-0831-6</div>
-                <div class="separator"></div>
-                <div class="pub-abstract collapsed" id="abstract-4">
-                    This study presents findings from comprehensive genome-wide linkage analysis in families affected
-                    with autosomal dominant nonsyndromic hearing loss. Through systematic genetic mapping and candidate
-                    gene screening, we identified a novel locus associated with progressive hearing loss. The research
-                    employed whole genome scanning with microsatellite markers followed by fine mapping to narrow the
-                    critical region. Functional characterization of candidate genes within the linked interval reveals
-                    new insights into the genetic heterogeneity of hearing disorders and expands our understanding of
-                    the molecular mechanisms underlying auditory function and progressive hearing impairment.
-                </div>
-                <div class="pub-buttons">
-                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-4', this)">Read More</button>
-                    <a href="https://link.springer.com/article/10.1007/s00439-010-0831-6" target="_blank"
-                        class="pub-btn pub-btn-publication">View Publication</a>
-                </div>
-            </div>
-
-            <!-- Publication 5 -->
-            <div class="publication-item">
-                <div class="pub-header">
-                    <h3 class="pub-title">Comprehensive genetic analysis reveals novel mutations in hereditary hearing
-                        loss genes</h3>
-                    <span class="pub-journal">Human Genetics</span>
-                </div>
-                <div class="pub-doi">DOI: 10.1007/s00439-008-0596-3</div>
-                <div class="separator"></div>
-                <div class="pub-abstract collapsed" id="abstract-5">
-                    This comprehensive study employs advanced genomic approaches to identify novel pathogenic mutations
-                    in genes associated with hereditary hearing loss. Through systematic screening of affected families
-                    and molecular characterization of identified variants, we discovered multiple novel mutations
-                    contributing to both syndromic and nonsyndromic forms of hearing impairment. The research provides
-                    valuable insights into genotype-phenotype correlations and expands the mutation spectrum of known
-                    deafness genes, contributing to improved genetic diagnosis and counseling for affected families. Our
-                    findings enhance understanding of the genetic architecture of hearing disorders.
-                </div>
-                <div class="pub-buttons">
-                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-5', this)">Read More</button>
-                    <a href="https://link.springer.com/article/10.1007/s00439-008-0596-3" target="_blank"
-                        class="pub-btn pub-btn-publication">View Publication</a>
-                </div>
-            </div>
-
-            <!-- Publication 6 -->
-            <div class="publication-item">
-                <div class="pub-header">
-                    <h3 class="pub-title">Molecular genetics of hereditary hearing loss: identification and functional
-                        characterization of novel gene variants</h3>
-                    <span class="pub-journal">European Journal of Human Genetics</span>
-                </div>
-                <div class="pub-doi">DOI: 10.1038/ejhg.2008.179</div>
-                <div class="separator"></div>
-                <div class="pub-abstract collapsed" id="abstract-6">
-                    This study focuses on the molecular genetics of hereditary hearing loss, presenting novel findings
-                    from genetic linkage studies and mutation analysis in families affected with nonsyndromic hearing
-                    impairment. Through combination of traditional linkage mapping and modern sequencing technologies,
-                    we identified and functionally characterized novel genetic variants associated with progressive
-                    hearing loss. The research demonstrates the complex genetic architecture of hearing disorders and
-                    highlights the importance of comprehensive genetic studies in understanding the molecular basis of
-                    auditory function and dysfunction. These findings contribute to improved diagnostic approaches and
-                    therapeutic strategies.
-                </div>
-                <div class="pub-buttons">
-                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-6', this)">Read More</button>
-                    <a href="https://www.nature.com/articles/ejhg2008179" target="_blank"
-                        class="pub-btn pub-btn-publication">View Publication</a>
-                </div>
-            </div>
-
-            <!-- Publication 7 -->
-            <div class="publication-item">
-                <div class="pub-header">
-                    <h3 class="pub-title">Population-specific genetic variants and disease susceptibility patterns in
-                        South Asian populations</h3>
-                    <span class="pub-journal">Journal of Genetics</span>
-                </div>
-                <div class="pub-doi">DOI: 10.1007/s12041-018-0947-3</div>
-                <div class="separator"></div>
-                <div class="pub-abstract collapsed" id="abstract-7">
-                    Comprehensive analysis of genetic variation across South Asian populations reveals unique allele
-                    frequencies and novel disease associations specific to these understudied populations. This study
-                    expands our understanding of genetic diversity, population structure, and disease susceptibility
-                    patterns in Indian and South Asian populations. Through large-scale genomic analysis and comparative
-                    population genetics approaches, we identified population-specific variants that contribute to
-                    various genetic disorders. These findings have important implications for precision medicine and
-                    genetic counseling in diverse populations, emphasizing the need for population-specific reference
-                    databases.
-                </div>
-                <div class="pub-buttons">
-                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-7', this)">Read More</button>
-                    <a href="https://link.springer.com/article/10.1007/s12041-018-0947-3" target="_blank"
-                        class="pub-btn pub-btn-publication">View Publication</a>
-                </div>
-            </div>
+            <!-- Add more publications as needed -->
         </section>
-
-        <!-- JavaScript for toggle functionality - Add to main.js or inline -->
-        <script>
-            function toggleAbstract(abstractId, button) {
-                const abstract = document.getElementById(abstractId);
-                const isCollapsed = abstract.classList.contains('collapsed');
-
-                if (isCollapsed) {
-                    abstract.classList.remove('collapsed');
-                    button.textContent = 'Read Less';
-                } else {
-                    abstract.classList.add('collapsed');
-                    button.textContent = 'Read More';
-                }
-            }
-        </script>
 
         <!-- NEWS SECTION -->
         <section id="news">
@@ -591,88 +602,120 @@
             </div>
         </section>
 
-        <!-- UPDATED CONTACT SECTION - Replace your existing contact section -->
+        <!-- CONTACT SECTION -->
         <section id="contact">
             <h2>Get In Touch</h2>
 
             <p>We welcome inquiries about our research, collaboration opportunities, and graduate student positions.
                 Please contact us using the form below or through the laboratory contact information.</p>
 
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+            <div class="contact-layout">
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
 
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
 
-            <div class="address-section">
-                <div class="address-image">
-                    <img src="assets/images/locationimage/addressdown.png" alt="Laboratory Location">
-                </div>
-                <div class="address-info">
-                    <h3>Laboratory Contact</h3>
-                    <p><strong>Human Molecular Genetics Lab</strong></p>
-                    <p>Jawaharlal Nehru Centre for Advanced Scientific Research</p>
-                    <p>Bangalore, Karnataka 560064, India</p>
-                    <p><strong>Phone:</strong> 080 2208 2712</p>
-                    <p><strong>Email:</strong> lab@jncasr.ac.in</p>
-                    <p><strong>Website:</strong> www.jncasr.ac.in</p>
+                <div class="contact-info-box">
+                    <div class="contact-image">
+                        <img src="assets/images/locationimage/addressdown.png" alt="Laboratory Location">
+                    </div>
+                    <div class="contact-details">
+                        <h3>Laboratory Contact</h3>
+                        <p><strong>Human Molecular Genetics Lab</strong></p>
+                        <p>Jawaharlal Nehru Centre for Advanced Scientific Research</p>
+                        <p>Bangalore, Karnataka 560064, India</p>
+                        <p><strong>Phone:</strong> 080 2208 2712</p>
+                        <p><strong>Email:</strong> lab@jncasr.ac.in</p>
+                        <p><strong>Website:</strong> www.jncasr.ac.in</p>
+                    </div>
                 </div>
             </div>
         </section>
+    </main>
 
-        <!-- FOOTER -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About HMG Lab</h3>
-                    <p>The Human Molecular Genetics Laboratory is dedicated to advancing understanding of genetic
-                        variation
-                        and its role in human disease through innovative research and collaborative science.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#home">Home</a></p>
-                    <p><a href="#research">Research</a></p>
-                    <p><a href="#team">Team</a></p>
-                    <p><a href="#publications">Publications</a></p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <p>Email: lab@jncasr.ac.in</p>
-                    <p>Phone: 080 2208 2712</p>
-                    <p>Follow us on social media for latest updates</p>
-                </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About HMG Lab</h3>
+                <p>The Human Molecular Genetics Laboratory is dedicated to advancing understanding of genetic
+                    variation
+                    and its role in human disease through innovative research and collaborative science.</p>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2025 Human Molecular Genetics Laboratory, JNCASR. All rights reserved.</p>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#research">Research</a></p>
+                <p><a href="#team">Team</a></p>
+                <p><a href="#publications">Publications</a></p>
             </div>
-        </footer>
 
-        <!-- JavaScript Files -->
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/animations.js"></script>
-        <script src="assets/js/interactions.js"></script>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <p>Email: lab@jncasr.ac.in</p>
+                <p>Phone: 080 2208 2712</p>
+                <p>Follow us on social media for latest updates</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Human Molecular Genetics Laboratory, JNCASR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/interactions.js"></script>
 </body>
 
-</html>
+</html>"></div>
+                <div class="pub-abstract collapsed" id="abstract-1">
+                    We analysed a four-generation family with several of its members diagnosed for BD employing a
+                    combination of genetic linkage and exome analysis. We obtained suggestive LOD score for a chromosome
+                    1 and a chromosome 6 marker (D1S410; LOD = 3.01, θ = 0; and D6S289; LOD = 1.58, θ = 0). Manual
+                    haplotyping of the regions encompassing these two markers helped delimit a critical genomic interval
+                    of 32.44 Mb (D1S2700-D1S435; chromosome 1p31.1-13.2) and another of 10.34 Mb (D6S470-D6S422;
+                    chromosome 6p22.3-22.2). We examined the exomic sequences corresponding to these two intervals and
+                    found rare variants, NM_181712.4: c.2461G>T (p.Asp821Tyr) in KANK4 at 1p31.1-13.2; and
+                    NM_006366:c.-93G>A, in the 5' UTR of CAP2 at 6p22.3-22.2. Our study suggests involvement of KANK4 or
+                    CAP2 or both in BD in this family. Further analysis of these two genes in BD patients and functional
+                    evaluation of the allelic variants identified are suggested.
+                </div>
+                <div class="pub-buttons">
+                    <button class="pub-btn pub-btn-read" onclick="toggleAbstract('abstract-1', this)">Read
+                        More</button>
+                    <a href="https://onlinelibrary.wiley.com/doi/10.1111/bdi.12815" target="_blank"
+                        class="pub-btn pub-btn-publication">View Publication</a>
+                </div>
+            </div>
+
+            <!-- Publication 2 -->
+            <div class="publication-item">
+                <div class="pub-header">
+                    <h3 class="pub-title">Novel COCH p.V123E mutation causes progressive sensorineural hearing loss with
+                        impaired cochlin post-translational cleavage</h3>
+                    <span class="pub-journal">Human Mutation</span>
+                </div>
+                <div class="pub-doi">DOI: 10.1002/humu.23221</div>
+                <div class="separator

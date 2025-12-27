@@ -22,57 +22,6 @@ function validateForm(form) {
   return isValid;
 }
 
-// ===== FORM SUBMISSION HANDLER =====
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-
-  if (!validateForm(form)) {
-    showNotification('Please fill in all fields', 'error');
-    return;
-  }
-
-  // Collect form data
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData);
-
-  // Log data (replace with actual API call)
-  console.log('Form data:', data);
-
-  // Show success message
-  showNotification('Thank you! Your message has been sent.', 'success');
-
-  // Reset form
-  setTimeout(() => {
-    form.reset();
-  }, 1000);
-}
-
-// ===== NOTIFICATION SYSTEM =====
-function showNotification(message, type = 'info') {
-  const notification = document.createElement('div');
-  notification.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 1rem 1.5rem;
-    background: ${type === 'success' ? '#22c55e' : type === 'error' ? '#ef4444' : '#3b82f6'};
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 9999;
-    animation: slideInRight 0.4s ease-out;
-  `;
-
-  notification.textContent = message;
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.style.animation = 'slideOutRight 0.4s ease-out';
-    setTimeout(() => notification.remove(), 400);
-  }, 3000);
-}
-
 // ===== DROPDOWN TOGGLE =====
 function initializeDropdownHandlers() {
   const navItems = document.querySelectorAll('.nav-item');
@@ -81,39 +30,36 @@ function initializeDropdownHandlers() {
     const dropdown = item.querySelector('.dropdown');
 
     if (dropdown) {
-      item.addEventListener('mouseenter', function() {
-        dropdown.style.opacity = '1';
-        dropdown.style.visibility = 'visible';
-      });
+      // For desktop - mouse events
+      if (window.innerWidth > 768) {
+        item.addEventListener('mouseenter', function() {
+          dropdown.style.opacity = '1';
+          dropdown.style.visibility = 'visible';
+          dropdown.style.transform = 'translateY(0)';
+        });
 
-      item.addEventListener('mouseleave', function() {
-        dropdown.style.opacity = '0';
-        dropdown.style.visibility = 'hidden';
-      });
+        item.addEventListener('mouseleave', function() {
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateY(-10px)';
+        });
+      } else {
+        // For mobile - click events
+        const navLink = item.querySelector('.nav-link');
+        navLink.addEventListener('click', function(e) {
+          if (dropdown) {
+            e.preventDefault();
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+          }
+        });
+      }
     }
   });
 }
 
-// ===== MODAL/POPUP HANDLERS =====
-function openModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-}
-
 // ===== BUTTON RIPPLE EFFECT =====
 function initializeRippleEffect() {
-  const buttons = document.querySelectorAll('.submit-btn, .pub-btn, .back-btn');
+  const buttons = document.querySelectorAll('.submit-btn, .pub-btn, .alumni-link-btn');
 
   buttons.forEach(button => {
     button.addEventListener('click', function(e) {
@@ -137,6 +83,7 @@ function initializeRippleEffect() {
 
       if (!this.style.position || this.style.position === 'static') {
         this.style.position = 'relative';
+        this.style.overflow = 'hidden';
       }
 
       this.appendChild(ripple);
@@ -148,11 +95,30 @@ function initializeRippleEffect() {
 
 // ===== COPY TO CLIPBOARD =====
 function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    showNotification('Copied to clipboard!', 'success');
-  }).catch(err => {
-    showNotification('Failed to copy', 'error');
-  });
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showNotification('Copied to clipboard!', 'success');
+    }).catch(err => {
+      console.error('Failed to copy:', err);
+      showNotification('Failed to copy', 'error');
+    });
+  } else {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!', 'success');
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      showNotification('Failed to copy', 'error');
+    }
+    document.body.removeChild(textArea);
+  }
 }
 
 // ===== EXPORT TO CLIPBOARD HANDLER =====
@@ -170,17 +136,15 @@ function initializeClipboardHandlers() {
 // ===== KEYBOARD SHORTCUTS =====
 function initializeKeyboardShortcuts() {
   document.addEventListener('keydown', function(e) {
-    // Escape to close modals
+    // Escape to close mobile menu
     if (e.key === 'Escape') {
-      const openModals = document.querySelectorAll('[role="dialog"]');
-      openModals.forEach(modal => {
-        if (modal.style.display === 'flex') {
-          modal.style.display = 'none';
-        }
-      });
+      const nav = document.getElementById('mainNav');
+      if (nav && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+      }
     }
 
-    // Ctrl/Cmd + K to focus search
+    // Ctrl/Cmd + K to focus search (if search exists)
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
       e.preventDefault();
       const searchInput = document.querySelector('input[type="search"]');
@@ -189,20 +153,94 @@ function initializeKeyboardShortcuts() {
   });
 }
 
+// ===== MODAL/POPUP HANDLERS =====
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// ===== NOTIFICATION SYSTEM (if not in main.js) =====
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    background: ${type === 'success' ? '#22c55e' : type === 'error' ? '#ef4444' : '#3b82f6'};
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    animation: slideInRight 0.4s ease-out;
+    font-weight: 500;
+  `;
+
+  notification.textContent = message;
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.style.animation = 'slideOutRight 0.4s ease-out';
+    setTimeout(() => notification.remove(), 400);
+  }, 3000);
+}
+
+// ===== HANDLE WINDOW RESIZE =====
+function handleResize() {
+  const nav = document.getElementById('mainNav');
+  
+  // Close mobile menu on resize to desktop
+  if (window.innerWidth > 768 && nav.classList.contains('active')) {
+    nav.classList.remove('active');
+  }
+  
+  // Re-initialize dropdown handlers
+  initializeDropdownHandlers();
+}
+
+// Debounced resize handler
+const debouncedResize = debounce(handleResize, 250);
+
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 // ===== INITIALIZE ALL ON LOAD =====
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', handleFormSubmit);
-  }
-
+  console.log('Initializing interactions...');
+  
   initializeDropdownHandlers();
   initializeRippleEffect();
   initializeClipboardHandlers();
   initializeKeyboardShortcuts();
+  
+  // Add resize listener
+  window.addEventListener('resize', debouncedResize);
+  
+  console.log('Interactions initialized successfully!');
 });
 
 // Expose functions to global scope
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.copyToClipboard = copyToClipboard;
+window.showNotification = showNotification;
