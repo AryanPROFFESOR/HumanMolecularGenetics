@@ -3,13 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMG Lab - Human Molecular Genetics Laboratory</title>
-    <meta name="description" content="Human Molecular Genetics Laboratory at JNCASR - Research in genetic variation and disease">
+    <title>About Us - HMG Lab</title>
+    <meta name="description" content="About Human Molecular Genetics Laboratory at JNCASR">
 
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    
+    <style>
+        /* Page transition animation */
+        body {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Smooth page exit */
+        body.page-exit {
+            animation: fadeOut 0.3s ease-out;
+        }
+        
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER -->
@@ -34,7 +64,7 @@
                         <a href="index.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a href="about.html" class="nav-link active">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="research.html" class="nav-link">
@@ -72,48 +102,33 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Human Molecular Genetics Laboratory</h1>
-            <p>Understanding Genetic Variation and Disease</p>
-            <p class="hero-subtitle">Cutting-edge research in computational and experimental genetics</p>
-            <a href="about.html" class="hero-btn">Learn More About Us</a>
-        </div>
-    </section>
-
     <!-- MAIN CONTENT -->
     <main>
-        <section style="padding: 4rem 2rem; text-align: center; max-width: 1400px; margin: 0 auto;">
-            <h2>Welcome to HMG Lab</h2>
-            <p style="max-width: 800px; margin: 2rem auto; font-size: 1.1rem; color: var(--text-gray);">
-                The Human Molecular Genetics Laboratory at JNCASR is dedicated to understanding 
-                the molecular mechanisms underlying human genetic variation and disease.
-            </p>
-            
-            <div class="quick-links" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <a href="research.html" class="quick-link-card">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔬</div>
-                    <h3>Our Research</h3>
-                    <p>Explore our research areas</p>
-                </a>
-                <a href="team.html" class="quick-link-card">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
-                    <h3>Our Team</h3>
-                    <p>Meet our researchers</p>
-                </a>
-                <a href="publications.html" class="quick-link-card">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
-                    <h3>Publications</h3>
-                    <p>View our latest work</p>
-                </a>
-                <a href="contact.html" class="quick-link-card">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
-                    <h3>Contact Us</h3>
-                    <p>Get in touch</p>
-                </a>
+        <section id="about">
+            <h2>About Our Laboratory</h2>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>The Human Molecular Genetics Laboratory at JNCASR is dedicated to understanding the molecular
+                        mechanisms underlying human genetic variation and disease. Our research combines cutting-edge
+                        computational approaches with rigorous experimental validation to uncover the genetic basis of
+                        complex human traits and genetic disorders.</p>
+
+                    <p>We employ a diverse range of methodologies including whole genome sequencing, comparative
+                        genomics, molecular characterization, and functional studies to investigate genetic mutations
+                        and their phenotypic consequences. Our work spans multiple domains of human genetics, with
+                        particular emphasis on understanding genetic heterogeneity and identifying novel disease genes.
+                    </p>
+
+                    <p>Our laboratory is committed to advancing the field of human genetics through high-quality
+                        research, training the next generation of geneticists, and contributing to the understanding of
+                        genetic diversity in human populations.</p>
+                </div>
+
+                <div class="about-image">
+                    <img src="assets/images/lab-image.jpg" alt="Laboratory Research" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-style:italic;\'>Laboratory Image</div>'">
+                </div>
             </div>
         </section>
     </main>

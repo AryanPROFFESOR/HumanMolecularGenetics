@@ -797,6 +797,7 @@ footer {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
+
   .research-detail,
   .research-detail.reverse {
     grid-template-columns: 1fr;
@@ -931,4 +932,77 @@ footer {
   .contact-layout {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================
+   ADD THESE STYLES TO THE END OF components.css
+   ============================================ */
+
+/* Quick Link Cards for Home Page */
+.quick-link-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  transition: var(--transition);
+  border-top: 4px solid var(--accent-light);
+  display: block;
+  text-align: center;
+}
+
+.quick-link-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-top-color: var(--accent);
+}
+
+.quick-link-card h3 {
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.quick-link-card p {
+  color: var(--text-gray);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Hero Button */
+.hero-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: white !important;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: var(--transition);
+  font-size: 1.05rem;
+}
+
+.hero-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+.dropdown-item.active {
+  background-color: #f5f5f5;
+  border-left-color: var(--accent);
+  padding-left: 1.7rem;
+  color: var(--accent);
+  font-weight: 600;
 }
